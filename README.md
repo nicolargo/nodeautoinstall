@@ -9,18 +9,25 @@ NodeJS and NPM are only available in Debian Sid.
 
 Here is a simple Python script for:
 
-* Download and install the latest NodeJS version
-* Download and install NPM
+* Download and install the latest [NodeJS](https://github.com/joyent/node) version
+* Download and install [NPM](https://github.com/isaacs/npm)
 
 That's all folks !
 
 ### How to process ?
 
-   $ cd /tmp
-   $ git clone 
-   $ cd 
-   $ sudo python ./nodeautoinstall.py
+In a console/terminal of you Debian distribution, enter the following commands:
+
+      $ cd /tmp
+
+      $ git clone git://github.com/nicolargo/nodeautoinstall.git
+      $ cd nodeautoinstall
+      or
+      $ wget https://raw.github.com/nicolargo/nodeautoinstall/master/nodeautoinstall.py
+
+      $ sudo python ./nodeautoinstall.py
 
 ### Result
 
+![screenshot](https://github.com/nicolargo/nodeautoinstall/raw/master/screenshot.png)
 
