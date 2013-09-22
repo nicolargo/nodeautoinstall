@@ -8,7 +8,10 @@
 #
 # Nicolargo (aka) Nicolas Hennion
 # http://www.nicolargo.com
-# 09/2012
+# 09/2013
+#
+# Change log:
+# * 1.1: Replace NPM installation procedure
 #
 
 """
@@ -21,7 +24,7 @@ from select import select
 # Global variables
 #-----------------------------------------------------------------------------
 
-_VERSION="1.0"
+_VERSION="1.1"
 _DEBUG = 0
 _LOG_FILE = "/tmp/nodeautoinstall.log"
 _DEFAULT_PATH = "/opt/node"
@@ -215,10 +218,11 @@ def main(argv):
 
         showexec ("Install pre-requisites", "apt-get install g++")
         showexec ("Download NodeJS", "rm -rf ~/nodeautoinstall.files && mkdir -p ~/nodeautoinstall.files && cd ~/nodeautoinstall.files && wget -N http://nodejs.org/dist/node-latest.tar.gz")
-        showexec ("Install NodeJS", "cd ~/nodeautoinstall.files && tar zxvf node-latest.tar.gz && cd ~/nodeautoinstall.files/node-v* && ./configure --prefix="+output_path+" && make install")
+        showexec ("Install NodeJS (please wait...)", "cd ~/nodeautoinstall.files && tar zxvf node-latest.tar.gz && cd ~/nodeautoinstall.files/node-v* && ./configure --prefix="+output_path+" && make install")
         # showexec ("Add PATH to current username", "echo 'export PATH=$PATH:"+output_path+"/bin' >> ~/.profile")
         # showexec ("Add NODE_PATH to current username", "echo 'export NODE_PATH="+output_path+":"+output_path+"/lib/node_modules' >> ~/.profile")
-        showexec ("Install NPM", "curl http://npmjs.org/install.sh | sh -c 'export PATH=$PATH:"+output_path+"/bin ; export NODE_PATH="+output_path+":"+output_path+"/lib/node_modules'")
+        # showexec ("Install NPM", "curl http://npmjs.org/install.sh | sh -c 'export PATH=$PATH:"+output_path+"/bin ; export NODE_PATH="+output_path+":"+output_path+"/lib/node_modules'")
+        showexec ("Install NPM (please wait again and longer...)", "cd ~/nodeautoinstall.files && git clone git://github.com/isaacs/npm.git && cd ~/nodeautoinstall.files/npm/scripts && chmod +x ./install.sh && ./install.sh")
 
         print "Optionnaly, add the following lines to your .profile file:"
         print "# --- NodeJS" 
